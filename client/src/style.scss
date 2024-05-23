@@ -1,0 +1,431 @@
+$primary-color: #800080;
+$error-color: red;
+$text-color: #fff;
+$background-color: #000;
+$link-color: purple;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: "Outfit", sans-serif;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 1024px;
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+      font-weight: normal;
+    }
+
+    //LOGIN i REGISTER
+
+    .auth {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: $background-color;
+
+      h1 {
+        font-size: 32px;
+        color: $primary-color;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 500px;
+        margin: 0 auto;
+        padding: 30px;
+        border: 1px solid lighten($background-color, 10%);
+        border-radius: 10px;
+        background-color: lighten($background-color, 5%);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+        input {
+          width: calc(100% - 10px);
+          margin-bottom: 20px;
+          padding: 15px;
+          border-radius: 8px;
+          border: 1px solid lighten($background-color, 20%);
+          font-size: 16px;
+          color: $text-color;
+          background-color: darken($background-color, 10%);
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+          }
+        }
+
+        button {
+          width: calc(100% - 30px);
+          background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+          color: #fff;
+          cursor: pointer;
+          font-size: 18px;
+          padding: 15px;
+          border: none;
+          border-radius: 8px;
+          transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+          &:hover {
+            background-image: linear-gradient(316deg, #5f0f40 0%, #310e68 74%);
+          }
+        }
+
+        .error {
+          color: red;
+          margin-bottom: 10px;
+        }
+
+        span {
+          margin-top: 15px;
+          font-size: 16px;
+          color: $text-color;
+        }
+      }
+    }
+
+    .navbar {
+      .container {
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+          img {
+            width: 180px;
+          }
+        }
+        .links {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          //font-weight: bold;
+          font-weight: 200;
+          .link {
+            font-weight: 300;
+          }
+          h3 {
+            font-size: 18px;
+          }
+          span {
+            cursor: pointer;
+            font-size: 18px;
+          }
+          .write {
+            background-color: black;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            color: purple;
+            border: 1px solid purple;
+
+            &:hover {
+              width: 50px;
+              height: 50px;
+              color: black;
+              background-color: purple;
+              border: 1px solid black;
+              transition: all 0.5s;
+            }
+          }
+        }
+      }
+    }
+
+    // Footer
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 18px;
+      img {
+        height: 70px;
+      }
+    }
+
+    // Home
+
+    .home {
+      .posts {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+
+        .post {
+          display: flex;
+          gap: 100px;
+          // ako e nechetno mestim kartinka
+          &:nth-child(2n + 1) {
+            flex-direction: row-reverse;
+          }
+
+          .img {
+            flex: 1;
+            position: relative;
+
+            &::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              background-color: #1f1f1f;
+              position: absolute;
+              top: 20px;
+              left: -20px;
+              z-index: -1;
+            }
+            img {
+              width: 100%;
+              max-height: 400px;
+              object-fit: cover;
+            }
+          }
+          .content {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+              font-size: 48px;
+            }
+            p {
+              font-size: 20px;
+            }
+
+            button {
+              width: max-content;
+              padding: 10px 20px;
+              color: purple;
+              background-color: black;
+              border: 1px solid purple;
+              cursor: pointer;
+
+              &:hover {
+                background-color: purple;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+    // single stranica (post)
+
+    .single {
+      display: flex;
+      gap: 50px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 3vh;
+          font-size: 18px;
+          img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 75%;
+          }
+
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .edit {
+          display: flex;
+          gap: 5px;
+
+          img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: none;
+          }
+        }
+
+        h1 {
+          font-size: 4vh;
+          color: #c7c7c7;
+        }
+        p {
+          text-align: justify;
+          color: #ffffff;
+          line-height: 30px;
+        }
+      }
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        h1 {
+          font-size: 20px;
+          color: white;
+        }
+        .post {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+          }
+
+          h2 {
+            color: #555;
+          }
+
+          button {
+            width: max-content;
+            padding: 10px 20px;
+            color: purple;
+            background-color: black;
+            border: 1px solid purple;
+            cursor: pointer;
+
+            &:hover {
+              background-color: purple;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    // Write page (za postove)
+    .add {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+          padding: 10px;
+          border: 5px solid purple;
+          background-color: black;
+          color: white;
+        }
+
+        .editorContainer {
+          .editor {
+            height: 270px;
+            width: 750px;
+
+            // custom scrollbar za write poleto
+            ::-webkit-scrollbar {
+              width: 10px;
+            }
+            ::-webkit-scrollbar-thumb {
+              background-color: purple;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .item {
+          padding: 10px;
+          border: 1px solid white;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 15px;
+          color: white;
+
+          h1 {
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+          .file {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          .buttons {
+            display: flex;
+            justify-content: space-between;
+
+            :first-child {
+              cursor: pointer;
+              color: white;
+              background-color: black;
+              border: 1px solid grey;
+              padding: 3px 5px;
+            }
+
+            :last-child {
+              background-color: black;
+              border: 1px solid purple;
+              color: purple;
+              padding: 3px 5px;
+
+              &:hover {
+                cursor: pointer;
+                color: black;
+                background-color: purple;
+                border: 1px solid black;
+                padding: 3px 5px;
+                transition: all 0.5s;
+              }
+            }
+          }
+          .cat {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            color: purple;
+          }
+        }
+      }
+    }
+  }
+}
+
+// TODO: da e responsive (ne mi stigna vremeto...)
