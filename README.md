@@ -10,7 +10,6 @@
 - **Frontend**: HTML5, CSS3, JavaScript, React.js
 - **Backend**: Node.js, Express.js
 - **Authentication**: JWT, bcrypt
-- **State Management**: Redux (if needed)
 
 ## Usage
 
