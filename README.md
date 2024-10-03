@@ -1,4 +1,5 @@
-# Technicus
+![build-passing](https://img.shields.io/badge/build-passing-brightgreen) ![test-passing](https://img.shields.io/badge/test-passing-brightgreen)
+# 💻 Technicus
 ## Features
 
 - **User Authentication**: Secure user registration and login using JWT.
